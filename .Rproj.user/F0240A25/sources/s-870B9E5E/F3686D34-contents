@@ -8,5 +8,7 @@ if(!require("Chem")) {
 }
 
 detach("package:Chem", unload = TRUE)
+detach("package:tidyverse")
+detach("package:webchem")
 install_github("gindeanikita/Chem")
 library(Chem)
