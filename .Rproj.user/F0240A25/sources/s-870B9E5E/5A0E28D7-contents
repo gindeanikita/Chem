@@ -1,0 +1,117 @@
+#-------------------------------------------------------------------------------
+#---Especificación del directorio de trabajo------------------------------------
+#-------------------------------------------------------------------------------
+setwd("C:/Users/ginde/OneDrive - IQS/IQS/Año 4/TFG - Trabajo de Fin de Grado/R Test")
+
+#-------------------------------------------------------------------------------
+#---Instalación de paquetes-----------------------------------------------------
+#-------------------------------------------------------------------------------
+
+#Sentencia de instalación de paquetes
+if(!require("devtools")) {
+  install.packages("devtools")
+  library("devtools")
+}
+
+if(!require("CDK-R/rpubchem")) {
+  install_github("CDK-R/rpubchem", dependencies = TRUE)
+  library("CDK-R/rpubchem")
+}
+
+if(!require("webchem")) {
+  install.packages("webchem")
+  library("webchem")
+}
+
+#Para hacer funcionar rcdk se necesita importar: rcdklibs y rJava
+if(!require("rcdklibs")) {
+  install.packages("rcdklibs")
+  library("rcdklibs")
+}
+if(!require("rJava")) {
+  install.packages("rJava")
+  library("rJava")
+}
+if(!require("rcdk")) {
+  install.packages("rcdk")
+  library("rcdk")
+}
+
+if(!require("BiocManager")) {
+  install.packages("BiocManager")
+  library("BiocManager")
+}
+if(!require("ChemmineR")) {
+  BiocManager::install("ChemmineR")
+  library("ChemmineR")
+}
+if(!require("ChemmineOB")) {
+  BiocManager::install("ChemmineOB")
+  library("ChemmineOB")
+}
+if(!require("tidyverse")) {
+  install.packages("tidyverse")
+  library("tidyverse")
+}
+
+
+#-------------------------------------------------------------------------------
+#---Importar datos RAW----------------------------------------------------------
+#-------------------------------------------------------------------------------
+dfMolecules <- read.table("Moleculas/Molecules DB.txt", sep = "\t", 
+                          header = TRUE)
+molAspirin <- load.molecules("Molecules/Aspirin.mol")
+
+#-------------------------------------------------------------------------------
+#---Paquete webchem-------------------------------------------------------------
+#-------------------------------------------------------------------------------
+#Se busca información y propiedades en bases de datos
+dfCIDSearch <- get_cid(dfMolecules$IUPAC.name)
+dfMolecules$CID <- dfCIDSearch$cid
+
+dfPubChem_Properties <- pc_prop(dfMolecules$CID)
+dfPubChem_SynonymSearch <- pc_synonyms(dfMolecules$CID, from = "cid")
+nCIDMethotrexate <- 126941
+
+a <- ci_query(dfMolecules$CAS.nr., from = "rn")
+
+#Se convierten formatos
+nSMILES <- cs_convert(nCIDMethotrexate, from = "csid", to = "smiles")
+cs_convert(nCIDMethotrexate, from = "csid", to = "inchi")
+nMethotrexateInChIKey <- cs_convert(nCIDMethotrexate, from = "csid", to = "inchikey")
+nMethotrexateMol <- cs_convert(nCIDMethotrexate, from = "csid", to = "mol")
+
+cs_convert(nMethotrexateMol, from = "mol", to = "csid") #error
+cs_convert(nMethotrexateMol, from = "mol", to = "smiles") #error
+cs_convert(nMethotrexateMol, from = "mol", to = "inchi") #error
+nMethotrexateInChIKey <- cs_convert(nMethotrexateMol, from = "mol", to = "inchikey")
+
+cs_convert(nMethotrexateInChIKey, from = "inchikey", to = "csid")
+cs_convert(nMethotrexateInChIKey, from = "inchikey", to = "smiles") #error
+cs_convert(nMethotrexateInChIKey, from = "inchikey", to = "inchi")
+cs_convert(nMethotrexateInChIKey, from = "inchikey", to = "mol")
+#No se obtiene el mismo InChI a partir de CSID o InChIKey
+
+cs_convert(nSMILES, from = "smiles", to = "inchi")
+
+#Búsqueda según PUG-REST
+pugrest <- "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
+pugin <- "compound/name"
+compound <- "50-78-2"
+pugoper <- "properties/MolecularFormula"
+pugout <- "txt"
+
+urlPubChem <- paste(pugrest, pugin, compound, pugoper, pugout, sep = "/")
+readLines(urlPubChem)
+
+#-------------------------------------------------------------------------------
+#---Paquete ChemmineR-----------------------------------------------------------
+#-------------------------------------------------------------------------------
+AspirinSDF <- read.SDFset("Molecules/Aspirin.mol")
+AspirinSDF[[1]]
+AspirinSDF_Canonicalized <- canonicalize(AspirinSDF)
+AspirinSDF_Canonicalized[[1]]
+ChemmineR::draw_sdf(AspirinSDF[[1]])
+ChemmineR::exactMassOB(AspirinSDF)
+MethotrexateSDFfromCID <- ChemmineR::pubchemCidToSDF(nCIDMethotrexate)
+draw_sdf(MethotrexateSDFfromCID[[1]])

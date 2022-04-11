@@ -1,0 +1,28 @@
+{
+    "id": "21B4FC63",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1649698151536.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "id": "dced7c3ddd2940189e8d76827bdbc0d9",
+        "name": "sdfsample",
+        "title": "sdfsample",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8104636694549182259,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649698151536,
+    "read_only": false,
+    "read_only_alternatives": []
+}
