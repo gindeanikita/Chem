@@ -1,0 +1,9 @@
+if(!require("devtools")) {
+  install.packages("devtools")
+  library("devtools")
+}
+
+if(!require("gindeanikita/Chem")) {
+  install_github("gindeanikita/Chem", dependencies = TRUE)
+  library("gindeanikita/Chem")
+}
