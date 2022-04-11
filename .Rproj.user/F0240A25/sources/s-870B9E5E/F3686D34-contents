@@ -6,3 +6,6 @@ if(!require("Chem")) {
   install_github("gindeanikita/Chem")
   library("Chem")
 }
+
+install_github("gindeanikita/Chem")
+library(Chem)
