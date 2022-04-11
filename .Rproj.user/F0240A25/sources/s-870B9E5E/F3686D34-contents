@@ -7,5 +7,6 @@ if(!require("Chem")) {
   library("Chem")
 }
 
+detach("package:Chem", unload = TRUE)
 install_github("gindeanikita/Chem")
 library(Chem)
