@@ -1,0 +1,20 @@
+if(!require("devtools")) {
+  install.packages("devtools")
+  library("devtools")
+}
+if(!require("Chem")) {
+  install_github("gindeanikita/Chem")
+  library("Chem")
+}
+
+detach("package:Chem", unload = TRUE)
+detach("package:tidyverse")
+detach("package:webchem")
+install_github("gindeanikita/Chem")
+library(Chem)
+
+a <- Chem::TransformChemData("CN(CC1=CN=C2C(=N1)C(=NC(=N2)N)N)C3=CC=C(C=C3)C(=O)N[C@@H](CCC(=O)O)C(=O)O",
+                        "smiles","mol")
+b <- draw_sdf(a[[1]])
+
+Chem::
