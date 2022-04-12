@@ -1,18 +1,18 @@
 {
-    "id": "34147777",
+    "id": "7B53831A",
     "path": null,
     "project_path": null,
     "type": "object_explorer",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1649752866007.0,
+    "created": 1649757739695.0,
     "source_on_save": false,
-    "relative_order": 5,
+    "relative_order": 2,
     "properties": {
-        "id": "fc00764a838f41b3bcd86784497df710",
-        "name": "dfMolecules",
-        "title": "dfMolecules",
+        "id": "9755f030ed2d4d73aa9a78e0d2f044ae",
+        "name": "dfSDFImport_List",
+        "title": "dfSDFImport_List",
         "language": "R",
         "source_window_id": "",
         "Source": "Source"
@@ -22,7 +22,7 @@
     "encoding": "",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1649752866007,
+    "last_content_update": 1649757739695,
     "read_only": false,
     "read_only_alternatives": []
 }

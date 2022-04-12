@@ -1,27 +1,27 @@
 {
-    "id": "C91B10FD",
+    "id": "07ACE50C",
     "path": "C:/Users/ginde/OneDrive - IQS/IQS/Año 4/TFG - Trabajo de Fin de Grado/Chem/man/ImportSDF.Rd",
     "project_path": "man/ImportSDF.Rd",
     "type": "r_doc",
-    "hash": "638045959",
+    "hash": "2078943182",
     "contents": "",
     "dirty": false,
-    "created": 1649756833129.0,
+    "created": 1649757782427.0,
     "source_on_save": false,
-    "relative_order": 9,
+    "relative_order": 3,
     "properties": {
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "21,55",
-        "scrollLine": "8"
+        "cursorPosition": "47,2",
+        "scrollLine": "35"
     },
     "folds": "",
-    "lastKnownWriteTime": 1649756930,
+    "lastKnownWriteTime": 1649758447,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1649756930235,
+    "last_content_update": 1649758447092,
     "read_only": false,
     "read_only_alternatives": []
 }
