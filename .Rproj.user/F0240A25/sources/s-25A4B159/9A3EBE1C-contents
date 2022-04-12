@@ -17,4 +17,9 @@ a <- Chem::TransformChemData("CN(CC1=CN=C2C(=N1)C(=NC(=N2)N)N)C3=CC=C(C=C3)C(=O)
                         "smiles","mol")
 b <- draw_sdf(a[[1]])
 
-Chem::
+setwd("C:/Users/ginde/OneDrive - IQS/IQS/Año 4/TFG - Trabajo de Fin de Grado/R test/MolExport")
+
+dfMolecules <- read.SDFstr("R test/CMP.sdf")
+dfMolecules <- ChemmineR::read.SDFstr("R test/CMP.sdf")
+ChemmineR::write.SDFsplit(x=dfMolecules, filetag="myfile", nmol=1)
+ChemmineR::sdf
