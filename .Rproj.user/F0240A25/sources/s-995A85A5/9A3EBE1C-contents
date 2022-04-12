@@ -26,4 +26,5 @@ dfMolecules <- ChemmineR::read.SDFstr(c("myfile01_01.sdf","myfile02_02.sdf",
                                         "myfile03_03.sdf","myfile04_04.sdf"))
 dfMolecules[[1]]
 
-Chem::ImportSDF
+dfDatos <- Chem::ImportSDF(c("myfile01_01.sdf","myfile02_02.sdf","myfile03_03.sdf",
+                  "myfile04_04.sdf"))

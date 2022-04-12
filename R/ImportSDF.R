@@ -1,6 +1,8 @@
 ImportSDF <- function(files){
+  x <- 1
   for(val in files) {
-    data[1,] <- ChemmineR::read.SDFset(val)
+    data[x,] <- ChemmineR::read.SDFset(val)
+    x <- x + 1
   }
   return(data)
   print("Data imported")
