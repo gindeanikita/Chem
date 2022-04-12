@@ -8,7 +8,7 @@ ImportSDF <- function(origin, files){
       x <- x + 1
     }
     str1 <- "List imported with "
-    str2 <- num2str(x - 1)
+    str2 <- toString(x - 1)
     str3 <- " files."
     print(paste(str1, str2, str3))
   }
@@ -20,7 +20,7 @@ ImportSDF <- function(origin, files){
       x <- x + 1
     }
     str1 <- "Directory imported with "
-    str2 <- num2str(x - 1)
+    str2 <- toString(x - 1)
     str3 <- " files."
     print(paste(str1, str2, str3))
   }

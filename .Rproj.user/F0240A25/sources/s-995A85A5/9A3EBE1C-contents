@@ -44,3 +44,7 @@ for(val in files){
   a[[x]] <- ChemmineR::read.SDFset(val)
   x <- x + 1
 }
+str1 <- "List imported with "
+str2 <- toString(x - 1)
+str3 <- " files."
+print(paste(str1, str2, str3))
