@@ -33,6 +33,7 @@ dfSDFImport_List <- Chem::ImportSDF("list",
                                      "myfile03_03.sdf", "myfile04_04.sdf"))
 
 dfSDFImport_setwd <- Chem::ImportSDF("directory")
+Chem::DrawMolecule("sdf",dfSDFImport_setwd,1,"test")
 
 ChemmineR::draw_sdf(dfSDFImport_List@SDF[[2]]@SDF[[1]])
 
