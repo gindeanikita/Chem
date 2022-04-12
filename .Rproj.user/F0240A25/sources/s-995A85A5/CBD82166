@@ -1,0 +1,28 @@
+{
+    "id": "CBD82166",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1649752825480.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "id": "83624a4444984f3e8452eeada34eaa63",
+        "name": "dfMolecules",
+        "title": "dfMolecules",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 4189034218496750437,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649752825480,
+    "read_only": false,
+    "read_only_alternatives": []
+}

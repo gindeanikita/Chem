@@ -1,0 +1,28 @@
+{
+    "id": "E2D84890",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1649752705355.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "id": "e5fb3daa47b64b42becd20a4087d1ac2",
+        "name": "dfMolecules",
+        "title": "dfMolecules",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 18577644818989121,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649752705355,
+    "read_only": false,
+    "read_only_alternatives": []
+}
