@@ -1,0 +1,28 @@
+{
+    "id": "940629AE",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1649759467451.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "id": "35628a5d527b4c14ae2ef43186c3d07a",
+        "name": "dfSDFImport_List",
+        "title": "dfSDFImport_List",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8299632943697506405,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649759467451,
+    "read_only": false,
+    "read_only_alternatives": []
+}
