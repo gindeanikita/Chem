@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 #---Especificación del directorio de trabajo------------------------------------
 #-------------------------------------------------------------------------------
-setwd("C:/Users/ginde/OneDrive - IQS/IQS/Año 4/TFG - Trabajo de Fin de Grado/R Test")
+setwd("C:/Users/ginde/OneDrive - IQS/IQS/Año 4/TFG - Trabajo de Fin de Grado/R Test/Molecules")
 
 #-------------------------------------------------------------------------------
 #---Instalación de paquetes-----------------------------------------------------
@@ -58,7 +58,7 @@ if(!require("tidyverse")) {
 #-------------------------------------------------------------------------------
 #---Importar datos RAW----------------------------------------------------------
 #-------------------------------------------------------------------------------
-dfMolecules <- read.table("Moleculas/Molecules DB.txt", sep = "\t",
+dfMolecules <- read.table("Molecules DB.txt", sep = "\t",
                           header = TRUE)
 molAspirin <- load.molecules("Molecules/Aspirin.mol")
 
