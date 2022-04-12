@@ -1,6 +1,6 @@
 ImportSDF <- function(origin, files){
   importedData <- new("SDFset")
-  x <- x + 1
+  x <- 1
 
   if(origin == "list"){
     for(val in files){
