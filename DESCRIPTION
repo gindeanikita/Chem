@@ -1,7 +1,7 @@
 Package: Chem
 Type: Package
 Title: Basic Cheminformatics utilities
-Version: 0.1.12.04.2022.16.23
+Version: 0.1.13.04.2022.16.53
 Author: Nichita Macarovici
 Maintainer: Nihita Macarovici <gindeanikita@outlook.com>
 Description: More about what it does (maybe more than one line)
@@ -9,4 +9,4 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: tidyverse, webchem, fingerprints
+Imports: tidyverse, webchem, fingerprint, rJava, rcdklibs, rcdk
