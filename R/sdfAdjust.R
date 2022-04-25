@@ -1,11 +1,19 @@
-sdfAdjust <- function(sdfFile, directory, saveNewFile, newFileName) {
+sdfAdjust <- function(sdfFile, origin = "file", directory = getwd(),
+                      saveNewFile = FALSE,
+                      newFileName = paste(getwd(), "/", sdfFile,
+                                          "_Adjusted.sdf", sep = "")) {
   #--- If directory not specified it reads from active working directory
   #--- By default saveNewFile is FALSE
   #--- By default newFileName is <sdFileName>_Treated.sdf
   #--- It is possible to import function return into a ChemmineR SDFset
   #--- Importing to rcdk it is possible through saving and importing file
 
-  sdfText <- readLines(paste(directory, sdfFile, sep = "/"), n = -1)
+  if (origin == "file") {
+    sdfText <- readLines(paste(directory, sdfFile, sep = "/"), n = -1)
+  } else {
+    sdfText <- sdfFile
+  }
+
 
   nPosM_END <- c(1, grep("\\$$$$", sdfText))
   nCharStr <- "QWERTYUIOPASDFGHJKLZXCVBNM0123456789"
