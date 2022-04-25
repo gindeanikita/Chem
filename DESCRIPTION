@@ -1,7 +1,7 @@
 Package: Chem
 Type: Package
 Title: Basic Cheminformatics utilities
-Version: 0.1.13.04.2022.16.53
+Version: 0.1.25.04.2022.11.04
 Author: Nichita Macarovici
 Maintainer: Nihita Macarovici <gindeanikita@outlook.com>
 Description: More about what it does (maybe more than one line)
