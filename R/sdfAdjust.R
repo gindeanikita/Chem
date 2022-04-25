@@ -17,7 +17,7 @@ sdfAdjust <- function(sdfFile, directory, saveNewFile, newFileName) {
     nPosCLB <- grep("V", nMolSeq)                                #Count Line Block
     nCLB <- c("", nMolSeq[nPosCLB[1]])
 
-    nWordHB <- Chemm::hasCharacter(nMolSeq, nCharStr)
+    nWordHB <- Chem::hasCharacter(nMolSeq, nCharStr)
     nPosWordHB <- nWordHB[1]
     if (nPosWordHB != 1) {
       nHB <- nMolSeq[(nPosWordHB - 1):nPosWordHB]

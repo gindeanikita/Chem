@@ -45,5 +45,5 @@ for (i in 1:length(dfCMP_mw_CheR)) {
 
 #-------------------------------------------------------------------------------
 #--- Correcting the file and importing it afterwards
-sdfAdjunst(sdfFile = "CMP_misswritten.sdf", directory = getwd(), 
+sdfAdjust(sdfFile = "CMP_misswritten.sdf", directory = getwd(), 
            saveNewFile = TRUE, newFileName = "CMP_corrected.sdf")
