@@ -28,4 +28,22 @@ library(ChemmineR)
 
 #-------------------------------------------------------------------------------
 #--- Importing a misswritten sdf File
-dfCMP_mw_rcdk <- load.molecules("")
+dfCMP_mw_rcdk <- load.molecules("CMP_misswritten.sdf")
+
+dfCMP_mw_CheR <- read.SDFset("CMP_misswritten.sdf")
+dfCMP_mw_CheR_fps <- data.frame(Molecule = rep(1:24))
+
+for (i in 1:length(dfCMP_mw_CheR)) {
+  dfCMP_mw_CheR_fps$fps[i] <- fingerprintOB(dfCMP_mw_CheR[[i]], "FP2")
+}
+
+#---Note: it is not possible to load a misswritten SDF file with rcdk, or it is 
+#---      loaded unproperly. In the case of ChemmineR package, SDF is loaded 
+#---      into a Formal class SDFset object but it is not possible to operate 
+#---      properly with it (e.g. fingerprintOB() function do not generate the 
+#---      fongerprints for the SDFsets)
+
+#-------------------------------------------------------------------------------
+#--- Correcting the file and importing it afterwards
+sdfAdjunst(sdfFile = "CMP_misswritten.sdf", directory = getwd(), 
+           saveNewFile = TRUE, newFileName = "CMP_corrected.sdf")

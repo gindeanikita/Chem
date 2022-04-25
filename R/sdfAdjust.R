@@ -5,7 +5,7 @@ sdfAdjust <- function(sdfFile, directory, saveNewFile, newFileName) {
   #--- It is possible to import function return into a ChemmineR SDFset
   #--- Importing to rcdk it is possible through saving and importing file
 
-  sdfText <- readLines("testSDFSets/CMP_Rtest.sdf", n = -1)
+  sdfText <- readLines(paste(directory, sdfFile, sep = "/"), n = -1)
 
   nPosM_END <- c(1, grep("\\$$$$", sdfText))
   nCharStr <- "QWERTYUIOPASDFGHJKLZXCVBNM0123456789"
