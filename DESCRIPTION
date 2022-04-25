@@ -1,9 +1,9 @@
 Package: Chem
 Type: Package
 Title: Basic Cheminformatics utilities
-Version: 0.1.25.04.2022.11.04
-Author: Nichita Macarovici
-Maintainer: Nihita Macarovici <gindeanikita@outlook.com>
+Version: 0.1.0
+Author: 
+Maintainer: 
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?

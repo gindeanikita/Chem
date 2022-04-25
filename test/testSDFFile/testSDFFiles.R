@@ -56,3 +56,19 @@ for (i in 1:length(dfCMP_crr_CheR)) {
   dfCMP_crr_CheR_fps$fps[i] <- paste(
     as.character(fingerprintOB(dfCMP_crr_CheR[i], "FP2")@fpma), collapse = "")
 }
+
+#-------------------------------------------------------------------------------
+#--- Trying to read a sdf file from PubChem
+sdfPC <- webSDF("Methotrexate", saveFile = TRUE)
+
+dfsdfPC_rcdk <- load.molecules("Methotrexate.sdf")
+dfsdfPC_rcdk_fps <- get.fingerprint(dfsdfPC_rcdk[[1]], type = "maccs")
+dfsdfPC_CheR <- read.SDFset("Methotrexate.sdf")
+dfsdfPC_CheR_fps <- fingerprintOB(dfsdfPC_CheR, "FP2")
+
+sdfPC <- webSDF("Aspirin", saveFile = TRUE)
+
+dfsdfPC_rcdk <- load.molecules("Aspirin.sdf")
+dfsdfPC_rcdk_fps <- get.fingerprint(dfsdfPC_rcdk[[1]], type = "maccs")
+dfsdfPC_CheR <- read.SDFset("Aspirin.sdf")
+dfsdfPC_CheR_fps <- fingerprintOB(dfsdfPC_CheR, "FP2")

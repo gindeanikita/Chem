@@ -6,8 +6,8 @@ webSDF <- function(query, origin = "PubChem", saveFile = FALSE){
     link <- paste(w1, query, w2, sep = "/")
     sdfExport <- readLines(link)
   }
-  sdfAdjusted <- Chem::sdfAdjust(sdfExport, origin = "txt",
+  sdfAdjusted <- sdfAdjust(sdfExport, origin = "txt",
                                  saveNewFile = saveFile,
-                                 newFileName = paste(query, ".sdf"))
+                                 newFileName = paste(query, ".sdf", sep = ""))
   return(sdfAdjusted)
 }
