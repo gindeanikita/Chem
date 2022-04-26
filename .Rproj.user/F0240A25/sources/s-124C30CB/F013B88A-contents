@@ -83,7 +83,7 @@ a <- ci_query(dfMolecules$CAS.nr., from = "rn")
 nSMILES <- cs_convert(nCIDMethotrexate, from = "csid", to = "smiles")
 cs_convert(nCIDMethotrexate, from = "csid", to = "inchi")
 nMethotrexateInChIKey <- cs_convert(nCIDMethotrexate, from = "csid", to = "inchikey")
-nMethotrexateMol <- cs_convert(nCIDMethotrexate, from = "csid", to = "mol")
+nMethotrexateMol <- webchem::cs_convert(nCIDMethotrexate, from = "csid", to = "mol")
 
 cs_convert(nMethotrexateMol, from = "mol", to = "csid") #error
 cs_convert(nMethotrexateMol, from = "mol", to = "smiles") #error
@@ -123,4 +123,47 @@ draw_sdf(MethotrexateSDFfromCID[[1]])
 #-------------------------------------------------------------------------------
 #---Paquete fmcsR---------------------------------------------------------------
 #-------------------------------------------------------------------------------
-fmcsR::fmcs(dfSDFImport[[1]], dfSDFImport[[2]])
+mcs1 <- fmcsR::fmcs(dfSDFImport_List@SDF[[1]]@SDF[[1]],
+                    dfSDFImport_List@SDF[[2]]@SDF[[1]]) #no funciona para nada
+
+ChemmineR::draw_sdf(dfSDFImport_List@SDF[[1]]@SDF[[1]])
+ChemmineR::draw_sdf(dfSDFImport_List@SDF[[2]]@SDF[[1]])
+
+library(ChemmineR)
+library(fmcsR)
+data(sdfsample)
+sdfset <- sdfsample
+mcs1 <- fmcs(sdfset[[1]], sdfset[[2]])
+mcsfast <- fmcs(sdfset[[1]], sdfset[[2]], fast=TRUE)
+mcs2 <- fmcs(sdfset[[1]], sdfset[[2]], au=3)
+mcs3 <- fmcs(sdfset[[1]], sdfset[[2]], bu=3)
+mcs4 <- fmcs(sdfset[[1]], sdfset[[2]], au=1, bu=1)
+mcs5 <- fmcs(sdfset[[1]], sdfset[[2]], matching.mode="aromatic")
+mcs6 <- fmcs(sdfset[[1]], sdfset[[2]], au=2, bu=1, matching.mode="aromatic")
+fmcsR::plotMCS(mcs1, mcs1=1)
+
+#-------------------------------------------------------------------------------
+#---Modificar y tratar SDF datasets---------------------------------------------
+#-------------------------------------------------------------------------------
+library(ChemmineR)
+library(fmcsR)
+data("sdfsample")
+SDFImport <- read.SDFset("CMP.sdf")
+draw_sdf(SDFImport[[1]])
+mcs1 <- fmcs(SDFImport[[1]], SDFImport[[2]])
+ChemmineR::write.SDF(sdfsample,"sdfsample.sdf")
+
+sdfsample_Import <- read.SDFset("sdfsample.sdf")
+draw_sdf(sdfsample_Import[[1]])
+mcs1 <- fmcs(sdfsample_Import[[1]],sdfsample_Import[[2]])
+
+#Se importan datos desde la web
+dfMoleculas <- read.table("Molecules/Molecules DB.txt", sep = "\t", 
+                          header = TRUE)
+dfCSID <- webchem::get_csid(dfMoleculas$IUPAC.name, match = "first")
+dfMoleculas$CSID <- dfCSID$csid
+dfMoleculas$Mol <- webchem::cs_convert(dfMoleculas$CSID, from = "csid", to = "mol")
+Mol1 <- webchem::parse_mol(dfMoleculas$Mol[1])
+Mol2 <- webchem::parse_mol(dfMoleculas$Mol[2])
+
+draw_sdf(Mol1)
